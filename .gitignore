@@ -1,0 +1,16 @@
+# Ignore these python files
+DataCleaning.py
+DC2.py
+
+# Ignore these txt files
+w1.txt
+w2.txt
+wsn1.txt
+wsn2.txt
+
+# Ignore entire taylor folder
+taylor/
+
+# Ignore .pyc files from python
+__pycache__/
+*.pyc
