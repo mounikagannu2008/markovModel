@@ -4,6 +4,8 @@ class markovmodel:
     def __init__(self):
         self.transition ={}
         self.starts={}
+        self.secondTransition ={}
+        self.secondStart={}
 
     def appendWord(self,word):
         if word not in self.transition:
@@ -11,6 +13,17 @@ class markovmodel:
 
     def appendStart(self,word):
          self.starts[word] = self.starts.get(word,0)+1
+
+    def appendSecondStart(self,ele1,ele2):
+        self.secondStart[(ele1,ele2)] = self.secondStart.get((ele1,ele2),0)+1
+
+    def appendSecondTransition(self,ele1,ele2):
+        if (ele1,ele2) not in self.secondTransition:
+            self.secondTransition[(ele1,ele2)]={}
+
+    def appendSecondNextWord(self,ele1,ele2,next):
+        self.appendSecondTransition(ele1,ele2)
+        self.secondTransition[(ele1,ele2)][next] = self.secondTransition[(ele1,ele2)].get(next,0)+1
 
     def appendNextWord(self,word,next):
         self.appendWord(word)
@@ -37,7 +50,6 @@ class markovmodel:
             total+=w
         return self.transition[word][next]/total
     
-
     def generateNextWord(self, word):
      if word not in self.transition:
         return None
@@ -55,4 +67,28 @@ class markovmodel:
         weight = list(self.starts.values())
 
         return random.choices(start,weights=weight,k=1)[0]
+    def generateSecondStart(self):
+        start = list(self.secondStart.keys())
+        weight= list(self.secondStart.values())
+
+        return random.choices(start,weights=weight,k=1)[0]
+    
+    def generateSecondNextWord(self,ele1,ele2):
+        start =(ele1,ele2)
+        if start not in self.secondTransition:
+            return
+        nextWord = list(self.secondTransition[start].keys())
+        weight = list(self.secondTransition[start].values())
+        if nextWord == []:
+            return None
+        print(start,self.secondTransition[start])
+
+        return random.choices(nextWord,weights=weight,k=1)[0]
+
+
+    def givefive(self):
+        start = list(self.starts.keys())  
+        weight = list(self.starts.values())
+        
+        return random.choices(start,weights=weight,k=5)
 

@@ -24,7 +24,7 @@ for file in files:
 #generate
 gen = g.generate(mymodel)
 while(True):
- print("1.give1stWord\n2.noStartNeeded\n3.exit")
+ print("1.give1stWord\n2.noStartNeeded\n3.SecondMarkov\n4.exit")
  choice = int(input("enter ur choice"))
  #getting start
  if (choice==1):
@@ -33,6 +33,8 @@ while(True):
  elif(choice == 2):
   gen.fromStart() 
  elif(choice == 3):
+  gen.giveSecondLine()
+ elif(choice == 4):
   print("i hope u had fun with this thing")
   print("[> <]")
   break

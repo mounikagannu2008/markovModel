@@ -9,8 +9,7 @@ wsn1.txt
 wsn2.txt
 
 # Ignore entire taylor folder
-taylor/
-
+mytext/
 # Ignore .pyc files from python
 __pycache__/
 *.pyc
