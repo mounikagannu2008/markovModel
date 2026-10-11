@@ -7,7 +7,8 @@ w1.txt
 w2.txt
 wsn1.txt
 wsn2.txt
-
+taylor/t1.txt
+taylor/t2.txt
 # Ignore entire taylor folder
 mytext/
 # Ignore .pyc files from python
