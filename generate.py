@@ -15,10 +15,6 @@ class generate:
             temp = nextWord
             nextWord = self.generate.generateNextWord(temp)
 
-
-
-
-
-
-
-        
+    def fromStart(self):
+        start =self.generate.generateStart()
+        self.giveLine(start)

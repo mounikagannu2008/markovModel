@@ -48,5 +48,11 @@ class markovmodel:
      if next_words == []:
          return None
 
-     return random.choices(next_words, weights=weights, k=1)[0]   
+     return random.choices(next_words, weights=weights, k=1)[0] 
+
+    def generateStart(self):
+        start = list(self.starts.keys())  
+        weight = list(self.starts.values())
+
+        return random.choices(start,weights=weight,k=1)[0]
 

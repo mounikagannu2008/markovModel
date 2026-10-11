@@ -7,6 +7,8 @@ class train:
 #pass line(list)
     def addline(self,line):
         for i in range(0,len(line)-1):
+           if i==0:
+              self.model.appendStart(line[i])
            #end case 
            if i == len(line)-2:
               self.model.appendNextWord(line[i+1].strip(),"<EOS>")
